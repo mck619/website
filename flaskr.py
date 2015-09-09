@@ -15,6 +15,10 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 
 
+
+
+
+
 def connect_db():
 	f = open(dbpwd.txt)
 	pwd = f.readline()
