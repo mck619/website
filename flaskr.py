@@ -4,11 +4,14 @@ from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
 
 # configuration
+f = open('config.txt')
+secrets = f.readlines()
+f.close
 DATABASE = '/tmp/flaskr.db'
-DEBUG = True
-SECRET_KEY = 'DarrenSproles43'
-USERNAME = 'admin'
-PASSWORD = 'default'
+DEBUG = False
+SECRET_KEY = secrets[0].replace('\n','')
+USERNAME = secrets[1].replace('\n','')
+PASSWORD = secrets[2].replace('\n','')
 
 # create our little application :)
 app = Flask(__name__)
